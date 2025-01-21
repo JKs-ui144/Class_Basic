@@ -96,35 +96,51 @@ Animal* createRandomAnimal() {
 class Zoo
 {
 private:
-	Animal* animals[10];
+	Animal* animals[10] = {nullptr};
 	int animalCount = 0;
 public:
 	void addAnimal(Animal* animal)
 	{
-		for (int i = 0; i < 10; i++) {
-			animals[i] = createRandomAnimal();
-			animalCount++;
+		if (animalCount < 10) {
+			animals[animalCount++] = animal;
 		}
+		else cout << "µ¿¹°¿øÀÌ ²Ë Ã¡½À´Ï´Ù." << endl;
 	}
 
 	void performActions()
 	{
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < animalCount; i++) {
 			animals[i]->makeSound();
 		}
 	}
 
 	~Zoo() {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < animalCount; i++) {
 			delete animals[i];
-			animalCount--;
 		}
 	}
 };
 
 int main() {
+	Animal* animals[3];
+	animals[0] = new Dog("°­¾ÆÁö", "¸Û¸Û");
+	animals[1] = new Cat("°í¾çÀÌ", "¾ß¿Ë");
+	animals[2] = new Cow("¼Û¾ÆÁö", "À½¸Þ");
+
+	for (int i = 0; i < 3; i++) {
+		animals[i]->makeSound();
+	}
+
+	for (int i = 0; i < 3; i++) {
+		delete animals[i];
+	}
+
 	Zoo zoo;
 	zoo.addAnimal(createRandomAnimal());
+	zoo.performActions();
+	for (int i = 0; i < 10; i++) {
+		zoo.addAnimal(createRandomAnimal());
+	}
 	zoo.performActions();
 	return 0;
 }
