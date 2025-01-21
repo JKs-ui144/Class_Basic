@@ -11,7 +11,7 @@ int Sum(int arr[]) {
 }
 
 double Avg(int arr[]) {
-	int avg = 0;
+	double avg = 0;
 	for (int i = 0; i < 5; i++)
 	{
 		avg += arr[i];
@@ -20,7 +20,24 @@ double Avg(int arr[]) {
 	return avg;
 }
 
-int main() {
+void UPbubbleSort(int arr[], int n) {
+	int temp = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n - 1; j++) {
+			if (arr[j] < arr[j + 1]) {
+				temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+	}
+
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
+	}
+}
+
+/*int main() {
 	int arr[5] = {0};
 	cout << "배열에 넣을 숫자 5개를 입력해주세요" << endl;
 	for (int i = 0; i < 5; i++)
@@ -30,4 +47,9 @@ int main() {
 	}
 	cout << "총 합: " << Sum(arr) << endl;
 	cout << "평균: " << Avg(arr) << endl;
-}
+	
+	cout << "오름차순 정렬: ";
+	UPbubbleSort(arr,5);
+
+	return 0;
+}*/
