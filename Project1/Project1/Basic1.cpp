@@ -58,7 +58,7 @@ public:
 	}
 };
 
-int main()
+/*int main()
 {
 	IAnimal* dog = new Dog("°­¾ÆÁö", "¸Û¸Û", 100);
 	IAnimal* cat = new Cat("°í¾çÀÌ", "¾ß¿Ë", 100);
@@ -70,4 +70,4 @@ int main()
 		animals[i]->Walk();
 	}
 	return 0;
-}
+}*/

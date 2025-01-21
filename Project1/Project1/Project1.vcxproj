@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimalZoo.cpp" />
     <ClCompile Include="Basic1.cpp" />
     <ClCompile Include="SumAvg.cpp" />
   </ItemGroup>
